@@ -1,0 +1,30 @@
+<h1>View 2</h1>
+<span>Search Name:</span> <input type="text" ng-model="name" />
+<br />
+
+<table class="table">
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>City</th>
+	</tr>
+	<tr ng-repeat="cust in customers | filter:name">
+		<td>{{$index + 1}}</td>
+		<td>{{cust.name}}</td>
+		<td>{{cust.city}}</td>
+		<td><a ng-click="deleteCustomer($index)">Delete</a></td>
+	</tr>
+</table>
+
+<br />
+<h2>Filter the Numbers</h2>
+<input type="text" ng-model="lowerBound" />
+<ul>
+	<li ng-repeat="number in numbers | filter:greaterThanNum">{{number}}</li>
+</ul>
+
+<br />
+<span>Click to show text:</span> <input type="checkbox" ng-model="showSpecial" />
+<div ng-show="showSpecial">
+	<p>This content will disappear and reappear if you click the checkbox above.</p>
+</div>
